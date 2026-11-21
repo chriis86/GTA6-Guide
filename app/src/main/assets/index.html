@@ -81,12 +81,84 @@
   .sw:after{content:"";position:absolute;top:2px;left:2px;width:20px;height:20px;border-radius:50%;background:var(--mut);transition:.2s}
   .sw.on{background:var(--pink)}.sw.on:after{left:22px;background:#fff}
   .small{font-size:12px;color:var(--mut)}
+
+  /* ===== Vice-City-Look (eigenes Design) ===== */
+  :root{ --bg:#0D0620; --card:#1A0D33; --card2:#26124A; --line:#3B1F66;
+         --pink:#FF3EA5; --orange:#FF9A3C; --cyan:#22E4F0; --purple:#8A3CFF; }
+  body{background:
+      radial-gradient(120% 60% at 50% 0%, #2B0E4F 0%, transparent 60%),
+      linear-gradient(180deg,#0D0620 0%,#120830 100%) fixed}
+  header{overflow:hidden;padding:16px 16px 12px;
+      background:linear-gradient(180deg,#2A0B4E 0%,#7A1E78 38%,#E24A7A 70%,#FF9A3C 100%);
+      border-bottom:2px solid var(--cyan);box-shadow:0 4px 24px rgba(255,62,165,.35)}
+  header > *{position:relative;z-index:1}
+  .scene{position:absolute!important;inset:0;z-index:0!important;pointer-events:none}
+  h1{font-size:26px;font-weight:900;font-style:italic;letter-spacing:1px;color:#fff;
+     text-shadow:0 0 6px #fff,0 0 14px var(--pink),0 0 28px var(--pink)}
+  h1 span{background:none;-webkit-background-clip:initial;color:#fff;
+     text-shadow:0 0 6px #fff,0 0 14px var(--cyan),0 0 28px var(--cyan)}
+  h1 em{display:block;font-size:11px;font-style:normal;font-weight:700;letter-spacing:5px;
+     color:#FFE3F2;text-shadow:0 0 8px var(--pink);margin-top:2px}
+  .iconbtn{background:rgba(13,6,32,.55);border:1px solid rgba(255,255,255,.35);backdrop-filter:blur(4px)}
+  .bar{background:rgba(13,6,32,.55);border:1px solid rgba(255,255,255,.25);height:10px}
+  .bar i{background:linear-gradient(90deg,var(--cyan),var(--pink));box-shadow:0 0 10px var(--pink)}
+  .sub{color:#FFE3F2;text-shadow:0 1px 3px rgba(0,0,0,.6)}
+  .search{background:rgba(13,6,32,.65);border:1px solid rgba(255,255,255,.3);color:#fff}
+  .search::placeholder{color:#E9C9F0}
+  .chap{background:linear-gradient(160deg,#1E0F3B,#150A2C);border:1px solid var(--line);
+     box-shadow:0 0 0 1px rgba(34,228,240,.08),0 6px 18px rgba(0,0,0,.35)}
+  .chead{background:linear-gradient(90deg,rgba(255,62,165,.22),rgba(34,228,240,.10))}
+  .chead b{font-style:italic;font-weight:800;letter-spacing:.3px}
+  .mini{height:3px}.mini i{background:linear-gradient(90deg,var(--pink),var(--cyan));box-shadow:0 0 8px var(--cyan)}
+  .chk{border-color:var(--cyan);box-shadow:0 0 6px rgba(34,228,240,.35)}
+  .done .chk{background:var(--pink);border-color:var(--pink);box-shadow:0 0 10px var(--pink)}
+  .done .chk:after{color:#fff}
+  .tag.J{background:rgba(34,228,240,.15);color:var(--cyan);border:1px solid rgba(34,228,240,.4)}
+  .tag.L{background:rgba(255,62,165,.15);color:var(--pink);border:1px solid rgba(255,62,165,.4)}
+  .tag.miss{border:1px solid rgba(255,194,75,.5)}
+  .tick{background:linear-gradient(160deg,#1E0F3B,#150A2C)}
+  .tick.tipp{background:linear-gradient(135deg,#3A0F4A,#1A0D33);border-color:rgba(255,154,60,.45)}
+  .tick.neu{box-shadow:0 0 12px rgba(255,62,165,.4)}
+  .chip.on{background:linear-gradient(90deg,var(--pink),var(--purple));border-color:transparent;box-shadow:0 0 10px var(--pink)}
+  nav{background:linear-gradient(180deg,#160A30,#0D0620);border-top:2px solid var(--pink);
+      box-shadow:0 -4px 20px rgba(255,62,165,.25)}
+  nav button.on{color:#fff;text-shadow:0 0 8px var(--pink),0 0 16px var(--pink)}
+  .panel{background:linear-gradient(180deg,#22104A,#140A2C);border-top:2px solid var(--cyan)}
+  .sw.on{background:var(--pink);box-shadow:0 0 10px var(--pink)}
 </style>
 </head>
 <body>
 <header>
-  <div class="top">
-    <h1><span>GTA 6</span> Guide</h1>
+  <svg class="scene" viewBox="0 0 400 200" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+    <defs>
+      <linearGradient id="sun" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFE45C"/><stop offset="1" stop-color="#FF3EA5"/></linearGradient>
+      <clipPath id="cut"><rect x="0" y="0" width="400" height="200"/></clipPath>
+    </defs>
+    <g opacity=".55">
+      <circle cx="300" cy="150" r="62" fill="url(#sun)"/>
+      <g fill="#7A1E78"><rect x="230" y="128" width="140" height="4"/><rect x="230" y="140" width="140" height="5"/><rect x="230" y="153" width="140" height="6"/><rect x="230" y="167" width="140" height="7"/></g>
+    </g>
+    <g stroke="#22E4F0" stroke-width="1" opacity=".35">
+      <line x1="0" y1="185" x2="400" y2="185"/><line x1="0" y1="194" x2="400" y2="194"/>
+      <line x1="200" y1="180" x2="120" y2="200"/><line x1="200" y1="180" x2="280" y2="200"/><line x1="200" y1="180" x2="40" y2="200"/><line x1="200" y1="180" x2="360" y2="200"/>
+    </g>
+    <g fill="#1A0630" opacity=".85">
+      <path d="M352 200 C350 170 354 140 362 110 L366 111 C359 140 356 170 358 200 Z"/>
+      <path d="M363 110 C345 98 325 100 312 112 C330 104 346 106 362 113 Z"/>
+      <path d="M363 110 C378 95 396 96 405 104 C390 101 376 104 365 113 Z"/>
+      <path d="M363 110 C352 90 336 84 322 88 C340 90 352 98 361 112 Z"/>
+      <path d="M364 110 C372 88 388 80 400 82 C386 88 374 98 366 112 Z"/>
+      <path d="M363 111 C358 124 348 136 334 142 C348 132 355 122 361 110 Z"/>
+      <path d="M365 111 C374 122 386 130 398 132 C386 126 376 118 367 109 Z"/>
+      <path d="M22 200 C22 178 18 156 10 134 L14 133 C22 156 26 178 27 200 Z"/>
+      <path d="M12 134 C26 122 42 122 54 132 C40 128 26 130 13 137 Z"/>
+      <path d="M12 134 C2 120 -10 118 -18 122 C-6 124 4 128 11 137 Z"/>
+      <path d="M12 134 C18 116 32 110 44 112 C30 116 20 124 14 136 Z"/>
+      <path d="M12 135 C18 146 28 154 40 158 C28 150 20 142 14 133 Z"/>
+    </g>
+  </svg>
+    <div class="top">
+    <h1><span>GTA 6</span> Guide<em>VICE CITY · LEONIDA</em></h1>
     <button class="iconbtn" id="menuBtn">⋮</button>
   </div>
   <div class="bar"><i id="pBar"></i></div>
