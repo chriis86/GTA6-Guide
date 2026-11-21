@@ -187,7 +187,6 @@
 <div class="sheet" id="sheet">
   <div class="panel">
     <h3>Einstellungen</h3>
-    <div class="row"><div>Spoilerschutz<div class="small">Kommende Missionsnamen unscharf (antippen zum Zeigen)</div></div><div class="sw" id="swSpoiler"></div></div>
     <div class="row"><div>Nur offene anzeigen</div><div class="sw" id="swOpen"></div></div>
     <div class="row"><div>Missionsliste<div class="small" id="datenInfo"></div></div><button id="updData">Prüfen</button></div>
     <div class="row"><div>Fortschritt</div><button class="red" id="reset">Zurücksetzen</button></div>
@@ -240,6 +239,7 @@ let D = store.get("daten", null);
 if(!D || !D.version || D.version < window.DATEN.version) D = window.DATEN;
 let done = new Set(store.get("done", []));
 let opts = Object.assign({spoiler:false, open:false}, store.get("opts", {}));
+opts.spoiler = true; // Spoilerschutz immer an
 let zu = new Set(store.get("zu", []));
 let view = "story", query = "", tfilter = "Alle";
 
@@ -493,8 +493,7 @@ function setView(v){
 $("#q").addEventListener("input", e => { query = e.target.value.trim().toLowerCase(); render(); });
 $("#reload").onclick = () => refreshTicker(true);
 $("#menuBtn").onclick = () => { $("#sheet").classList.add("on"); $("#datenInfo").textContent = "Version " + D.version + " vom " + (D.stand || "?"); };
-function syncSw(){ $("#swSpoiler").classList.toggle("on", opts.spoiler); $("#swOpen").classList.toggle("on", opts.open); }
-$("#swSpoiler").onclick = () => { opts.spoiler = !opts.spoiler; store.set("opts", opts); syncSw(); render(); };
+function syncSw(){ $("#swOpen").classList.toggle("on", opts.open); }
 $("#swOpen").onclick = () => { opts.open = !opts.open; store.set("opts", opts); syncSw(); render(); };
 $("#updData").onclick = () => { $("#datenInfo").textContent = "Prüfe…"; checkData(true); };
 $("#reset").onclick = () => {
