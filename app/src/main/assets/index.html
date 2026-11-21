@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>GTA 6 Guide</title>
+<style>
+  :root{
+    --bg:#120B1E; --card:#1E1430; --card2:#271A3D; --line:#352552;
+    --txt:#F4EEFF; --mut:#A898C4; --pink:#FF5DA2; --orange:#FFA552; --cyan:#3FD9E0;
+    --ok:#4BE38A; --warn:#FFC24B;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;background:var(--bg);color:var(--txt);font-family:system-ui,Roboto,sans-serif;font-size:15px}
+  header{position:sticky;top:0;z-index:5;background:linear-gradient(180deg,#1A0F2E,var(--bg));padding:14px 16px 10px}
+  .top{display:flex;align-items:center;gap:10px}
+  h1{font-size:20px;margin:0;flex:1;letter-spacing:.5px}
+  h1 span{background:linear-gradient(90deg,var(--pink),var(--orange));-webkit-background-clip:text;color:transparent}
+  .iconbtn{background:var(--card);border:1px solid var(--line);color:var(--txt);border-radius:10px;width:38px;height:38px;font-size:18px}
+  .bar{height:8px;background:var(--card2);border-radius:6px;overflow:hidden;margin-top:10px}
+  .bar i{display:block;height:100%;background:linear-gradient(90deg,var(--pink),var(--orange));width:0;transition:width .4s}
+  .sub{color:var(--mut);font-size:12px;margin-top:5px;display:flex;justify-content:space-between}
+  .search{width:100%;margin-top:10px;padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--txt);font-size:15px}
+  main{padding:4px 12px 90px}
+  .view{display:none}.view.on{display:block}
+  .chap{background:var(--card);border:1px solid var(--line);border-radius:14px;margin:10px 0;overflow:hidden}
+  .chead{display:flex;align-items:center;gap:10px;padding:13px 14px}
+  .chead b{flex:1;font-size:15px}
+  .chead small{color:var(--mut)}
+  .mini{height:4px;background:var(--card2)}
+  .mini i{display:block;height:100%;background:var(--cyan);width:0}
+  .chap.zu .list{display:none}
+  .arrow{transition:transform .2s;color:var(--mut)}
+  .chap.zu .arrow{transform:rotate(-90deg)}
+  .item{display:flex;align-items:flex-start;gap:12px;padding:11px 14px;border-top:1px solid var(--line)}
+  .item.done .nm{color:var(--mut);text-decoration:line-through}
+  .chk{flex:none;width:24px;height:24px;border-radius:7px;border:2px solid var(--mut);display:flex;align-items:center;justify-content:center;margin-top:1px}
+  .done .chk{background:var(--ok);border-color:var(--ok)}
+  .done .chk:after{content:"✓";color:#0B2416;font-weight:900;font-size:15px}
+  .body{flex:1;min-width:0}
+  .nm{font-size:15px}
+  .meta{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+  .tag{font-size:11px;padding:2px 7px;border-radius:20px;background:var(--card2);color:var(--mut)}
+  .tag.J{background:#16384A;color:var(--cyan)}
+  .tag.L{background:#4A1636;color:var(--pink)}
+  .tag.miss{background:#4A3A10;color:var(--warn)}
+  .hint{font-size:12px;color:var(--orange);margin-top:4px}
+  .spoiler .nm{filter:blur(6px)}
+  .num{color:var(--mut);font-size:12px;width:22px;flex:none;text-align:right;margin-top:3px}
+  .toggle{display:flex;align-items:center;gap:8px;color:var(--mut);font-size:13px;margin:10px 4px}
+  /* Ticker */
+  .tick{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin:10px 0}
+  .tick .src{font-size:11px;color:var(--mut);display:flex;gap:6px;align-items:center}
+  .tick .t{font-size:15px;margin:5px 0 2px;line-height:1.35}
+  .tick .x{font-size:13px;color:var(--mut);line-height:1.4}
+  .tick.neu{border-color:var(--pink)}
+  .tick.neu .src:before{content:"NEU";background:var(--pink);color:#fff;font-weight:700;padding:1px 6px;border-radius:6px}
+  .tick.tipp{background:linear-gradient(135deg,#2A1640,#1E1430)}
+  .live{display:flex;align-items:center;gap:8px;margin:12px 4px;color:var(--mut);font-size:13px}
+  .dot{width:9px;height:9px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 0 rgba(75,227,138,.7);animation:p 1.8s infinite}
+  @keyframes p{70%{box-shadow:0 0 0 8px rgba(75,227,138,0)}100%{box-shadow:0 0 0 0 rgba(75,227,138,0)}}
+  .live button{margin-left:auto;background:var(--card);border:1px solid var(--line);color:var(--txt);border-radius:9px;padding:7px 12px}
+  .chips{display:flex;gap:8px;overflow-x:auto;margin:6px 0}
+  .chip{flex:none;padding:6px 12px;border-radius:20px;background:var(--card);border:1px solid var(--line);color:var(--mut);font-size:13px}
+  .chip.on{background:var(--pink);border-color:var(--pink);color:#fff}
+  .empty{color:var(--mut);text-align:center;padding:30px 10px}
+  nav{position:fixed;bottom:0;left:0;right:0;display:flex;background:#160E26;border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom)}
+  nav button{flex:1;background:none;border:0;color:var(--mut);padding:9px 0 10px;font-size:11px;position:relative}
+  nav button div{font-size:20px;margin-bottom:2px}
+  nav button.on{color:var(--pink)}
+  .badge{position:absolute;top:4px;left:55%;background:var(--pink);color:#fff;font-size:10px;border-radius:10px;padding:1px 6px;font-weight:700}
+  /* Menü */
+  .sheet{position:fixed;inset:0;background:rgba(0,0,0,.55);display:none;z-index:20;align-items:flex-end}
+  .sheet.on{display:flex}
+  .panel{background:var(--card);width:100%;border-radius:18px 18px 0 0;padding:18px 16px 26px}
+  .panel h3{margin:0 0 12px}
+  .row{display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-top:1px solid var(--line)}
+  .row button{background:var(--card2);border:1px solid var(--line);color:var(--txt);border-radius:9px;padding:8px 12px}
+  .row button.red{color:#FF7B7B}
+  .sw{width:46px;height:26px;border-radius:20px;background:var(--card2);position:relative;border:1px solid var(--line)}
+  .sw:after{content:"";position:absolute;top:2px;left:2px;width:20px;height:20px;border-radius:50%;background:var(--mut);transition:.2s}
+  .sw.on{background:var(--pink)}.sw.on:after{left:22px;background:#fff}
+  .small{font-size:12px;color:var(--mut)}
+</style>
+</head>
+<body>
+<header>
+  <div class="top">
+    <h1><span>GTA 6</span> Guide</h1>
+    <button class="iconbtn" id="menuBtn">⋮</button>
+  </div>
+  <div class="bar"><i id="pBar"></i></div>
+  <div class="sub"><span id="pTxt">0 %</span><span id="pCnt"></span></div>
+  <input class="search" id="q" placeholder="Mission suchen…" autocomplete="off">
+</header>
+
+<main>
+  <section class="view on" id="v-story"></section>
+  <section class="view" id="v-neben"></section>
+  <section class="view" id="v-aktiv"></section>
+  <section class="view" id="v-ticker">
+    <div class="live"><span class="dot"></span><span id="liveTxt">Live-Ticker</span><button id="reload">↻ Aktualisieren</button></div>
+    <div class="chips" id="tchips"></div>
+    <div id="tlist"></div>
+  </section>
+</main>
+
+<nav>
+  <button data-v="story" class="on"><div>📖</div>Story</button>
+  <button data-v="neben"><div>🧭</div>Neben</button>
+  <button data-v="aktiv"><div>🌴</div>Aktivitäten</button>
+  <button data-v="ticker"><div>📡</div>Live<span class="badge" id="tbadge" style="display:none"></span></button>
+</nav>
+
+<div class="sheet" id="sheet">
+  <div class="panel">
+    <h3>Einstellungen</h3>
+    <div class="row"><div>Spoilerschutz<div class="small">Kommende Missionsnamen unscharf (antippen zum Zeigen)</div></div><div class="sw" id="swSpoiler"></div></div>
+    <div class="row"><div>Nur offene anzeigen</div><div class="sw" id="swOpen"></div></div>
+    <div class="row"><div>Missionsliste<div class="small" id="datenInfo"></div></div><button id="updData">Prüfen</button></div>
+    <div class="row"><div>Fortschritt</div><button class="red" id="reset">Zurücksetzen</button></div>
+  </div>
+</div>
+
+<script src="daten.js"></script>
+<script>
+"use strict";
+/* ---------- Einstellungen: hier ggf. Repo anpassen ---------- */
+const REPO_RAW = "https://raw.githubusercontent.com/chriis86/gta6-guide/main/";
+const FEEDS = [
+  {name:"Tipps & Tricks", url:"https://news.google.com/rss/search?q=%22GTA+6%22+(Tipps+OR+Tricks+OR+Guide)+when:7d&hl=de&gl=DE&ceid=DE:de"},
+  {name:"News", url:"https://news.google.com/rss/search?q=%22GTA+6%22+when:3d&hl=de&gl=DE&ceid=DE:de"},
+  {name:"Community", url:"https://www.reddit.com/r/GTA6/top/.rss?t=day"}
+];
+const AUTO_MIN = 15; // automatisch alle X Minuten aktualisieren
+
+/* ---------- Speicher ---------- */
+const store = {
+  get(k, d){ try{ const v = window.Android ? Android.load(k) : localStorage.getItem(k); return v ? JSON.parse(v) : d; }catch(e){ return d; } },
+  set(k, v){ const s = JSON.stringify(v); try{ window.Android ? Android.save(k, s) : localStorage.setItem(k, s); }catch(e){} }
+};
+
+/* ---------- Netzwerk über die App (umgeht CORS) ---------- */
+const cbs = {}; let cbn = 0;
+window.__nativeCb = (id, ok, b64) => {
+  const f = cbs[id]; delete cbs[id]; if(!f) return;
+  if(!ok) return f(null);
+  try{ const bin = atob(b64); const bytes = new Uint8Array(bin.length);
+       for(let i=0;i<bin.length;i++) bytes[i] = bin.charCodeAt(i);
+       f(new TextDecoder("utf-8").decode(bytes)); }catch(e){ f(null); }
+};
+function getUrl(url){
+  return new Promise(res => {
+    const t = setTimeout(() => res(null), 30000);
+    const done = v => { clearTimeout(t); res(v); };
+    if(window.Android){ const id = "c" + (++cbn); cbs[id] = done; Android.fetch(url, id); }
+    else fetch(url).then(r => r.ok ? r.text() : null).then(done).catch(() => done(null));
+  });
+}
+function openUrl(u){ if(window.Android) Android.openUrl(u); else window.open(u, "_blank"); }
+
+/* ---------- Status ---------- */
+let D = store.get("daten", null);
+if(!D || !D.version || D.version < window.DATEN.version) D = window.DATEN;
+let done = new Set(store.get("done", []));
+let opts = Object.assign({spoiler:false, open:false}, store.get("opts", {}));
+let zu = new Set(store.get("zu", []));
+let view = "story", query = "", tfilter = "Alle";
+
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const figName = {J:"Jason", L:"Lucia"};
+function saveDone(){ store.set("done", [...done]); }
+
+function toggle(id){
+  done.has(id) ? done.delete(id) : done.add(id);
+  saveDone(); render();
+}
+
+/* ---------- Fortschritt ---------- */
+function allIds(){
+  const s = D.kapitel.flatMap(k => k.missionen.map(m => m.id));
+  return s.concat(D.neben.map(n => n.id), D.aktiv.map(a => a.id));
+}
+function updateProgress(){
+  let ids;
+  if(view === "neben") ids = D.neben.map(n => n.id);
+  else if(view === "aktiv") ids = D.aktiv.map(a => a.id);
+  else ids = D.kapitel.flatMap(k => k.missionen.map(m => m.id));
+  const n = ids.filter(i => done.has(i)).length;
+  const p = ids.length ? Math.round(n / ids.length * 100) : 0;
+  $("#pBar").style.width = p + "%";
+  const label = view === "neben" ? "Nebenmissionen" : view === "aktiv" ? "Aktivitäten" : "Story";
+  $("#pTxt").textContent = p + " % " + label;
+  const all = allIds(); const na = all.filter(i => done.has(i)).length;
+  $("#pCnt").textContent = n + "/" + ids.length + " · Gesamt " + Math.round(na / all.length * 100) + " %";
+}
+
+/* ---------- Ansichten ---------- */
+const match = s => !query || s.toLowerCase().includes(query);
+
+function itemHtml(id, name, tags, hint, num, spoil){
+  const d = done.has(id);
+  if(opts.open && d && !query) return "";
+  return `<div class="item ${d ? "done" : ""} ${spoil ? "spoiler" : ""}" data-id="${id}">
+    ${num ? `<div class="num">${num}</div>` : ""}
+    <div class="chk"></div>
+    <div class="body"><div class="nm">${esc(name)}</div>
+      ${tags ? `<div class="meta">${tags}</div>` : ""}
+      ${hint ? `<div class="hint">💡 ${esc(hint)}</div>` : ""}
+    </div></div>`;
+}
+
+function chapter(key, title, inner, n, total){
+  const p = total ? Math.round(n / total * 100) : 0;
+  return `<div class="chap ${zu.has(key) && !query ? "zu" : ""}" data-key="${key}">
+    <div class="chead"><b>${esc(title)}</b><small>${n}/${total}</small><span class="arrow">▾</span></div>
+    <div class="mini"><i style="width:${p}%"></i></div>
+    <div class="list">${inner || `<div class="empty">Alles erledigt 🎉</div>`}</div></div>`;
+}
+
+function renderStory(){
+  // erste offene Mission finden (für Spoilerschutz)
+  const flat = D.kapitel.flatMap(k => k.missionen);
+  let firstOpen = flat.findIndex(m => !done.has(m.id)); if(firstOpen < 0) firstOpen = flat.length;
+  let idx = 0, html = "", found = 0;
+  D.kapitel.forEach((k, ki) => {
+    let inner = "", n = 0;
+    k.missionen.forEach((m, mi) => {
+      const pos = idx++;
+      if(done.has(m.id)) n++;
+      if(!match(m.name)) return;
+      found++;
+      const tags = m.fig ? `<span class="tag ${m.fig}">${figName[m.fig]}</span>` : "";
+      const spoil = opts.spoiler && !done.has(m.id) && pos > firstOpen + 1;
+      inner += itemHtml(m.id, m.name, tags, m.hinweis, mi + 1, spoil);
+    });
+    if(query && !inner) return;
+    html += chapter("k" + ki, k.name, inner, n, k.missionen.length);
+  });
+  $("#v-story").innerHTML = (found ? html : `<div class="empty">Nichts gefunden</div>`) +
+    `<p class="small" style="padding:6px">Stand der Liste: ${esc(D.stand || "")} · Reihenfolge kann je nach Spielweise leicht abweichen.</p>`;
+}
+
+function renderNeben(){
+  let html = `<div class="toggle">⏳ = verpassbar – verschwindet, wenn die Story weitergeht</div>`;
+  const kaps = [...new Set(D.neben.map(n => n.kap))].sort();
+  let found = 0;
+  kaps.forEach(k => {
+    const list = D.neben.filter(n => n.kap === k);
+    let inner = "", c = 0;
+    list.forEach(m => {
+      if(done.has(m.id)) c++;
+      if(!match(m.name + " " + m.geber)) return;
+      found++;
+      const tags = `<span class="tag">${esc(m.geber)}</span>` + (m.verpassbar ? `<span class="tag miss">⏳ verpassbar</span>` : "");
+      inner += itemHtml(m.id, m.name, tags, null, null, false);
+    });
+    if(query && !inner) return;
+    html += chapter("n" + k, "Ab Kapitel " + k, inner, c, list.length);
+  });
+  $("#v-neben").innerHTML = found ? html : `<div class="empty">Nichts gefunden</div>`;
+}
+
+function renderAktiv(){
+  const kats = [...new Set(D.aktiv.map(a => a.kat))];
+  let html = "", found = 0;
+  kats.forEach(k => {
+    const list = D.aktiv.filter(a => a.kat === k);
+    let inner = "", c = 0;
+    list.forEach(a => {
+      if(done.has(a.id)) c++;
+      if(!match(a.name)) return;
+      found++;
+      inner += itemHtml(a.id, a.name, "", null, null, false);
+    });
+    if(query && !inner) return;
+    html += chapter("a" + k, k, inner, c, list.length);
+  });
+  $("#v-aktiv").innerHTML = found ? html : `<div class="empty">Nichts gefunden</div>`;
+}
+
+function render(){
+  if(view === "story") renderStory();
+  if(view === "neben") renderNeben();
+  if(view === "aktiv") renderAktiv();
+  updateProgress();
+}
+
+/* ---------- Live-Ticker ---------- */
+let ticker = store.get("ticker", {items:[], tipps:[], zeit:0});
+let lastSeen = store.get("lastSeen", 0);
+let loading = false;
+
+function parseFeed(xml, srcName){
+  const out = [];
+  try{
+    const doc = new DOMParser().parseFromString(xml, "text/xml");
+    const nodes = doc.querySelectorAll("item, entry");
+    nodes.forEach(n => {
+      const get = t => { const e = n.getElementsByTagName(t)[0]; return e ? e.textContent.trim() : ""; };
+      let link = get("link");
+      const le = n.getElementsByTagName("link")[0];
+      if(le && le.getAttribute("href")) link = le.getAttribute("href");
+      const dateStr = get("pubDate") || get("updated") || get("published");
+      let title = get("title");
+      let quelle = get("source") || srcName;
+      // Google News: "Titel - Quelle"
+      const m = title.match(/^(.*) - ([^-]{2,40})$/);
+      if(m && srcName !== "Community"){ title = m[1]; quelle = m[2]; }
+      if(srcName === "Community") quelle = "r/GTA6";
+      if(title) out.push({t:title, l:link, d:Date.parse(dateStr) || Date.now(), q:quelle, k:srcName});
+    });
+  }catch(e){}
+  return out.slice(0, 25);
+}
+
+async function refreshTicker(manual){
+  if(loading) return; loading = true;
+  $("#liveTxt").textContent = "Lädt…";
+  const jobs = FEEDS.map(f => getUrl(f.url).then(x => x ? parseFeed(x, f.name) : null));
+  jobs.push(getUrl(REPO_RAW + "tipps.json?t=" + Date.now()).then(x => { try{ return JSON.parse(x).tipps; }catch(e){ return null; } }));
+  const res = await Promise.all(jobs);
+  const tipps = res.pop();
+  const feeds = res.filter(Boolean).flat();
+  if(feeds.length){
+    const seen = new Set();
+    ticker.items = feeds.filter(i => { const key = i.t.toLowerCase(); if(seen.has(key)) return false; seen.add(key); return true; })
+                        .sort((a, b) => b.d - a.d).slice(0, 60);
+  }
+  if(tipps) ticker.tipps = tipps;
+  if(feeds.length || tipps){ ticker.zeit = Date.now(); store.set("ticker", ticker); }
+  loading = false;
+  renderTicker();
+  if(manual && !feeds.length && !tipps) $("#liveTxt").textContent = "Keine Verbindung – zeige gespeicherte Einträge";
+  // Missionsliste gleich mitprüfen
+  checkData(false);
+}
+
+function ago(ts){
+  const m = Math.round((Date.now() - ts) / 60000);
+  if(m < 1) return "gerade eben"; if(m < 60) return "vor " + m + " Min.";
+  const h = Math.round(m / 60); if(h < 24) return "vor " + h + " Std.";
+  return "vor " + Math.round(h / 24) + " Tg.";
+}
+
+function renderTicker(){
+  const neu = ticker.items.filter(i => i.d > lastSeen).length;
+  const b = $("#tbadge");
+  if(neu && view !== "ticker"){ b.style.display = ""; b.textContent = neu > 99 ? "99+" : neu; } else b.style.display = "none";
+  if(view !== "ticker") return;
+  $("#liveTxt").textContent = ticker.zeit ? "Aktualisiert " + ago(ticker.zeit) : "Live-Ticker";
+  const cats = ["Alle", "Guide-Tipps", ...FEEDS.map(f => f.name)];
+  $("#tchips").innerHTML = cats.map(c => `<button class="chip ${c === tfilter ? "on" : ""}" data-c="${c}">${c}</button>`).join("");
+  let html = "";
+  const tipps = ticker.tipps.length ? ticker.tipps : (window.TIPPS_FALLBACK || []);
+  if(tfilter === "Alle" || tfilter === "Guide-Tipps"){
+    html += tipps.map(t => `<div class="tick tipp"><div class="src">💡 Guide-Tipp${t.tag ? " · " + esc(t.tag) : ""}</div>
+      <div class="t">${esc(t.titel)}</div><div class="x">${esc(t.text)}</div></div>`).join("");
+  }
+  if(tfilter !== "Guide-Tipps"){
+    const list = ticker.items.filter(i => tfilter === "Alle" || i.k === tfilter);
+    html += list.map(i => `<div class="tick ${i.d > lastSeen ? "neu" : ""}" data-l="${esc(i.l)}">
+      <div class="src">${esc(i.q)} · ${ago(i.d)}</div><div class="t">${esc(i.t)}</div></div>`).join("");
+    if(!list.length) html += `<div class="empty">${ticker.zeit ? "Keine Einträge" : "Tippe auf ↻ Aktualisieren"}</div>`;
+  }
+  $("#tlist").innerHTML = html;
+}
+
+/* ---------- Missionsliste online aktualisieren ---------- */
+async function checkData(manual){
+  const x = await getUrl(REPO_RAW + "missionen.json?t=" + Date.now());
+  let info = "Version " + D.version + " vom " + (D.stand || "?");
+  try{
+    const nd = JSON.parse(x);
+    if(nd && nd.version > D.version && nd.kapitel){
+      D = nd; store.set("daten", D); render();
+      info = "Aktualisiert auf Version " + D.version;
+    } else if(manual) info += " – aktuell";
+  }catch(e){ if(manual) info += " – keine Verbindung"; }
+  $("#datenInfo").textContent = info;
+}
+
+/* ---------- Ereignisse ---------- */
+document.addEventListener("click", e => {
+  const it = e.target.closest(".item");
+  if(it){
+    if(it.classList.contains("spoiler") && !e.target.closest(".chk")){ it.classList.remove("spoiler"); return; }
+    toggle(it.dataset.id); return;
+  }
+  const ch = e.target.closest(".chead");
+  if(ch){ const k = ch.parentNode.dataset.key; zu.has(k) ? zu.delete(k) : zu.add(k); store.set("zu", [...zu]); ch.parentNode.classList.toggle("zu"); return; }
+  const tk = e.target.closest(".tick[data-l]");
+  if(tk && tk.dataset.l){ openUrl(tk.dataset.l); return; }
+  const chip = e.target.closest(".chip");
+  if(chip){ tfilter = chip.dataset.c; renderTicker(); return; }
+  const nb = e.target.closest("nav button");
+  if(nb){ setView(nb.dataset.v); return; }
+  if(e.target.id === "sheet") $("#sheet").classList.remove("on");
+});
+
+function setView(v){
+  if(view === "ticker" && v !== "ticker"){ lastSeen = Date.now(); store.set("lastSeen", lastSeen); }
+  view = v;
+  document.querySelectorAll("nav button").forEach(b => b.classList.toggle("on", b.dataset.v === v));
+  document.querySelectorAll(".view").forEach(s => s.classList.toggle("on", s.id === "v-" + v));
+  $("#q").style.display = v === "ticker" ? "none" : "";
+  window.scrollTo(0, 0);
+  render(); renderTicker();
+  if(v === "ticker" && Date.now() - ticker.zeit > 5 * 60000) refreshTicker(false);
+}
+
+$("#q").addEventListener("input", e => { query = e.target.value.trim().toLowerCase(); render(); });
+$("#reload").onclick = () => refreshTicker(true);
+$("#menuBtn").onclick = () => { $("#sheet").classList.add("on"); $("#datenInfo").textContent = "Version " + D.version + " vom " + (D.stand || "?"); };
+function syncSw(){ $("#swSpoiler").classList.toggle("on", opts.spoiler); $("#swOpen").classList.toggle("on", opts.open); }
+$("#swSpoiler").onclick = () => { opts.spoiler = !opts.spoiler; store.set("opts", opts); syncSw(); render(); };
+$("#swOpen").onclick = () => { opts.open = !opts.open; store.set("opts", opts); syncSw(); render(); };
+$("#updData").onclick = () => { $("#datenInfo").textContent = "Prüfe…"; checkData(true); };
+$("#reset").onclick = () => {
+  if(confirmReset()){ done.clear(); saveDone(); render(); $("#sheet").classList.remove("on"); }
+};
+let resetArmed = 0;
+function confirmReset(){ // zweimal tippen statt Popup
+  if(Date.now() - resetArmed < 3000){ resetArmed = 0; $("#reset").textContent = "Zurücksetzen"; return true; }
+  resetArmed = Date.now(); $("#reset").textContent = "Nochmal tippen!";
+  setTimeout(() => { $("#reset").textContent = "Zurücksetzen"; }, 3000);
+  return false;
+}
+
+window.handleBack = () => {
+  if($("#sheet").classList.contains("on")){ $("#sheet").classList.remove("on"); return true; }
+  if(view !== "story"){ setView("story"); return true; }
+  return false;
+};
+window.onAppResume = () => { if(Date.now() - ticker.zeit > 5 * 60000) refreshTicker(false); };
+
+window.TIPPS_FALLBACK = [
+  {titel:"Selbst speichern!", text:"Es gibt keine Missions-Wiederholung. Am Anfang und Ende jedes Kapitels manuell speichern.", tag:"Wichtig"},
+  {titel:"Sanduhr = verpassbar", text:"Nebenjobs mit Sanduhr verschwinden, wenn die Story weitergeht – in der App mit ⏳ markiert.", tag:"Wichtig"}
+];
+
+syncSw();
+render();
+renderTicker();
+refreshTicker(false);
+setInterval(() => refreshTicker(false), AUTO_MIN * 60000);
+setInterval(() => { if(view === "ticker" && !loading) $("#liveTxt").textContent = "Aktualisiert " + ago(ticker.zeit); }, 30000);
+</script>
+</body>
+</html>

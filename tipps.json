@@ -1,0 +1,13 @@
+{
+ "stand": "2026-11-21",
+ "tipps": [
+  {"titel": "Selbst speichern!", "text": "Es gibt keine Missions-Wiederholung. Am Anfang und Ende jedes Kapitels manuell speichern, dann kannst du zurück, wenn du was verpasst hast.", "tag": "Wichtig"},
+  {"titel": "Sanduhr = verpassbar", "text": "Nebenjobs mit Sanduhr-Symbol auf der Karte verschwinden, sobald die Story weitergeht. In der App sind sie mit ⏳ markiert – zuerst erledigen.", "tag": "Wichtig"},
+  {"titel": "Shirley gleich in Kapitel 1", "text": "'Get Shirley's Rum' und 'Steal the Scooter' gibt es nur in Kapitel 1. Danach sind sie weg.", "tag": "Verpassbar"},
+  {"titel": "Geld zurücklegen", "text": "Einige Story-Schritte (z. B. Abes Honorar nach 'Lawyer Up' und vor 'Protective Custody') kosten Geld. Ohne genug Kohle geht's nicht weiter – nicht alles verprassen.", "tag": "Geld"},
+  {"titel": "Pilot Pete = 20.000 $", "text": "Die Lieferflüge von Pete in Kapitel 4 bringen nur dann die volle Belohnung, wenn alle sieben Pakete rechtzeitig ankommen. Route vorher auf der Karte anschauen.", "tag": "Geld"},
+  {"titel": "Trophäe Strangers & Freaks", "text": "Für die Trophäe brauchst du 8 komplette Nebenmissions-Stränge. Verpassbare Missionen zählen nicht dazu – du kannst sie also trotzdem schaffen.", "tag": "Trophäe"},
+  {"titel": "Race Against Yago", "text": "Das Rennen gegen Yago in Kapitel 3 ist zeitlich begrenzt. Sobald es auftaucht, erledigen.", "tag": "Verpassbar"},
+  {"titel": "Lucias Anruf in Kapitel 4", "text": "'This is a Free Call From…' gibt es nur mit Lucia und nur für kurze Zeit in Kapitel 4.", "tag": "Verpassbar"}
+ ]
+}

@@ -1,0 +1,42 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'de.chriis86.gta6guide'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId 'de.chriis86.gta6guide'
+        minSdk 26
+        targetSdk 34
+        versionCode 1
+        versionName '1.0'
+    }
+
+    // Fester Schluessel: so kann man neue Versionen einfach drueberinstallieren,
+    // ohne dass die Haekchen verloren gehen.
+    signingConfigs {
+        guide {
+            storeFile file('guide.keystore')
+            storePassword 'gta6guide'
+            keyAlias 'guide'
+            keyPassword 'gta6guide'
+        }
+    }
+
+    buildTypes {
+        debug {
+            signingConfig signingConfigs.guide
+        }
+        release {
+            minifyEnabled false
+            signingConfig signingConfigs.guide
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}

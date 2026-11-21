@@ -1,0 +1,917 @@
+window.DATEN = {
+ "version": 1,
+ "stand": "2026-11-21",
+ "kapitel": [
+  {
+   "name": "Kapitel 1: Just Like Paradise",
+   "missionen": [
+    {
+     "id": "s1_1",
+     "name": "Prologue",
+     "fig": ""
+    },
+    {
+     "id": "s1_2",
+     "name": "Gone Fishing",
+     "fig": "J"
+    },
+    {
+     "id": "s1_3",
+     "name": "Gear Up",
+     "fig": "J"
+    },
+    {
+     "id": "s1_4",
+     "name": "Lab Fees",
+     "fig": "J"
+    },
+    {
+     "id": "s1_5",
+     "name": "Just a Scratch",
+     "fig": "J"
+    },
+    {
+     "id": "s1_6",
+     "name": "Unwanted Attention",
+     "fig": "J"
+    },
+    {
+     "id": "s1_7",
+     "name": "Pipework",
+     "fig": "J"
+    },
+    {
+     "id": "s1_8",
+     "name": "Hey Arnold!",
+     "fig": "J"
+    },
+    {
+     "id": "s1_9",
+     "name": "Island Dreams",
+     "fig": "J"
+    },
+    {
+     "id": "s1_10",
+     "name": "Feng Shui",
+     "fig": "J"
+    },
+    {
+     "id": "s1_11",
+     "name": "Coming Home",
+     "fig": ""
+    },
+    {
+     "id": "s1_12",
+     "name": "Clean Up After Donnie",
+     "fig": ""
+    },
+    {
+     "id": "s1_13",
+     "name": "Buck Me",
+     "fig": "",
+     "hinweis": "Danach: Geld bei BuckMe einzahlen + 'Save for the Future' (Pflicht-Schritte, keine Missionen)"
+    },
+    {
+     "id": "s1_14",
+     "name": "Down to Earth",
+     "fig": ""
+    },
+    {
+     "id": "s1_15",
+     "name": "Day Release",
+     "fig": ""
+    },
+    {
+     "id": "s1_16",
+     "name": "Clear Skies",
+     "fig": ""
+    },
+    {
+     "id": "s1_17",
+     "name": "Swamped",
+     "fig": ""
+    },
+    {
+     "id": "s1_18",
+     "name": "Don Gone",
+     "fig": ""
+    },
+    {
+     "id": "s1_19",
+     "name": "Recalibration",
+     "fig": ""
+    },
+    {
+     "id": "s1_20",
+     "name": "Tourist Trap",
+     "fig": ""
+    },
+    {
+     "id": "s1_21",
+     "name": "Home Sweet Home",
+     "fig": ""
+    },
+    {
+     "id": "s1_22",
+     "name": "Discharge Time",
+     "fig": ""
+    }
+   ]
+  },
+  {
+   "name": "Kapitel 2: Paradise Lost",
+   "missionen": [
+    {
+     "id": "s2_1",
+     "name": "What's in the Bag?",
+     "fig": ""
+    },
+    {
+     "id": "s2_2",
+     "name": "Just Moved In",
+     "fig": ""
+    },
+    {
+     "id": "s2_3",
+     "name": "Girls' Trip",
+     "fig": ""
+    },
+    {
+     "id": "s2_4",
+     "name": "Moses",
+     "fig": ""
+    },
+    {
+     "id": "s2_5",
+     "name": "Ambulance Chaser",
+     "fig": ""
+    },
+    {
+     "id": "s2_6",
+     "name": "Slam Dunk",
+     "fig": ""
+    },
+    {
+     "id": "s2_7",
+     "name": "Daily Driver",
+     "fig": ""
+    },
+    {
+     "id": "s2_8",
+     "name": "Breakfast Run",
+     "fig": ""
+    },
+    {
+     "id": "s2_9",
+     "name": "Coffee Break",
+     "fig": ""
+    },
+    {
+     "id": "s2_10",
+     "name": "Afternoon Delight",
+     "fig": ""
+    },
+    {
+     "id": "s2_11",
+     "name": "Checking Out",
+     "fig": ""
+    }
+   ]
+  },
+  {
+   "name": "Kapitel 3: Tits Ass Drug Money",
+   "missionen": [
+    {
+     "id": "s3_1",
+     "name": "Welcome to Vice City",
+     "fig": ""
+    },
+    {
+     "id": "s3_2",
+     "name": "Dealer's Choice",
+     "fig": "J"
+    },
+    {
+     "id": "s3_3",
+     "name": "Dubious Provenance",
+     "fig": ""
+    },
+    {
+     "id": "s3_4",
+     "name": "Mami Knows Best",
+     "fig": "L"
+    },
+    {
+     "id": "s3_5",
+     "name": "Here, Kitty Kitty",
+     "fig": "J"
+    },
+    {
+     "id": "s3_6",
+     "name": "Encrypted Hard Drive",
+     "fig": ""
+    },
+    {
+     "id": "s3_7",
+     "name": "Boobie Time",
+     "fig": "J"
+    },
+    {
+     "id": "s3_8",
+     "name": "Meet the Heders",
+     "fig": ""
+    },
+    {
+     "id": "s3_9",
+     "name": "Yasmani's Jewelry Jobs",
+     "fig": ""
+    },
+    {
+     "id": "s3_10",
+     "name": "Car Service",
+     "fig": "L"
+    },
+    {
+     "id": "s3_11",
+     "name": "Top Billing",
+     "fig": ""
+    },
+    {
+     "id": "s3_12",
+     "name": "First Impressions",
+     "fig": ""
+    },
+    {
+     "id": "s3_13",
+     "name": "Crosstown Traffic",
+     "fig": "L"
+    },
+    {
+     "id": "s3_14",
+     "name": "Meet Karim",
+     "fig": "J"
+    },
+    {
+     "id": "s3_15",
+     "name": "Credit Check",
+     "fig": ""
+    },
+    {
+     "id": "s3_16",
+     "name": "Clonin' Keys, Makin' Gs (Steal the Zorrusso for Randy)",
+     "fig": ""
+    },
+    {
+     "id": "s3_17",
+     "name": "Ride or Die",
+     "fig": "J"
+    },
+    {
+     "id": "s3_18",
+     "name": "Sinfrontera National Bank",
+     "fig": ""
+    },
+    {
+     "id": "s3_19",
+     "name": "Security Expert",
+     "fig": ""
+    },
+    {
+     "id": "s3_20",
+     "name": "Caught Slipping",
+     "fig": ""
+    },
+    {
+     "id": "s3_21",
+     "name": "Company Property",
+     "fig": ""
+    },
+    {
+     "id": "s3_22",
+     "name": "Safe Word",
+     "fig": ""
+    },
+    {
+     "id": "s3_23",
+     "name": "The Missing Link",
+     "fig": "L"
+    },
+    {
+     "id": "s3_24",
+     "name": "Cooties",
+     "fig": ""
+    },
+    {
+     "id": "s3_25",
+     "name": "Hidden Charges",
+     "fig": ""
+    },
+    {
+     "id": "s3_26",
+     "name": "Bricked Up",
+     "fig": ""
+    },
+    {
+     "id": "s3_27",
+     "name": "South Leonida Real Estate",
+     "fig": "L"
+    },
+    {
+     "id": "s3_28",
+     "name": "The Cartel Heist",
+     "fig": ""
+    }
+   ]
+  },
+  {
+   "name": "Kapitel 4: Vice City, Baby",
+   "missionen": [
+    {
+     "id": "s4_1",
+     "name": "Ocean Beach",
+     "fig": ""
+    },
+    {
+     "id": "s4_2",
+     "name": "Another Life",
+     "fig": ""
+    },
+    {
+     "id": "s4_3",
+     "name": "Pool Day",
+     "fig": ""
+    },
+    {
+     "id": "s4_4",
+     "name": "Company Cars",
+     "fig": ""
+    },
+    {
+     "id": "s4_5",
+     "name": "Lawyer Up",
+     "fig": "",
+     "hinweis": "Danach muss Abes Honorar bezahlt werden – Geld bereithalten"
+    },
+    {
+     "id": "s4_6",
+     "name": "It's a Date!",
+     "fig": ""
+    },
+    {
+     "id": "s4_7",
+     "name": "Party Hard",
+     "fig": ""
+    },
+    {
+     "id": "s4_8",
+     "name": "Photo/Shoot",
+     "fig": ""
+    },
+    {
+     "id": "s4_9",
+     "name": "Making Gainz",
+     "fig": "L"
+    },
+    {
+     "id": "s4_10",
+     "name": "Blood Sweat and Gear",
+     "fig": "L"
+    },
+    {
+     "id": "s4_11",
+     "name": "Too Much Baggage",
+     "fig": "J"
+    },
+    {
+     "id": "s4_12",
+     "name": "Watch It",
+     "fig": "J"
+    },
+    {
+     "id": "s4_13",
+     "name": "Amateur Hour",
+     "fig": "L"
+    },
+    {
+     "id": "s4_14",
+     "name": "Cash Injections",
+     "fig": "L"
+    },
+    {
+     "id": "s4_15",
+     "name": "Dirty Work",
+     "fig": ""
+    },
+    {
+     "id": "s4_16",
+     "name": "Adventures in Babysitting",
+     "fig": "J"
+    },
+    {
+     "id": "s4_17",
+     "name": "Fresh Evidence",
+     "fig": "J"
+    },
+    {
+     "id": "s4_18",
+     "name": "Child's Play",
+     "fig": ""
+    },
+    {
+     "id": "s4_19",
+     "name": "Power Play",
+     "fig": "L"
+    },
+    {
+     "id": "s4_20",
+     "name": "Close Surveillance",
+     "fig": "J"
+    },
+    {
+     "id": "s4_21",
+     "name": "Delivery Method",
+     "fig": "J"
+    },
+    {
+     "id": "s4_22",
+     "name": "Team Building",
+     "fig": "L"
+    },
+    {
+     "id": "s4_23",
+     "name": "Fully Catered",
+     "fig": ""
+    },
+    {
+     "id": "s4_24",
+     "name": "Headliners",
+     "fig": ""
+    },
+    {
+     "id": "s4_25",
+     "name": "VCIA Takedown",
+     "fig": ""
+    },
+    {
+     "id": "s4_26",
+     "name": "Tie Up Loose Ends",
+     "fig": ""
+    },
+    {
+     "id": "s4_27",
+     "name": "Sunset",
+     "fig": ""
+    },
+    {
+     "id": "s4_28",
+     "name": "Starting From Zero",
+     "fig": ""
+    }
+   ]
+  },
+  {
+   "name": "Kapitel 5: Top of the World, Ma",
+   "missionen": [
+    {
+     "id": "s5_1",
+     "name": "Bird in the Hand",
+     "fig": ""
+    },
+    {
+     "id": "s5_2",
+     "name": "Taking Liberties",
+     "fig": ""
+    },
+    {
+     "id": "s5_3",
+     "name": "Doggie Bag",
+     "fig": ""
+    },
+    {
+     "id": "s5_4",
+     "name": "VC Baby",
+     "fig": ""
+    },
+    {
+     "id": "s5_5",
+     "name": "Operation Savage Glory",
+     "fig": ""
+    },
+    {
+     "id": "s5_6",
+     "name": "Honest Abe",
+     "fig": "",
+     "hinweis": "Vor 'Protective Custody' wieder Abes Honorar zahlen"
+    },
+    {
+     "id": "s5_7",
+     "name": "Unfinished Business",
+     "fig": ""
+    },
+    {
+     "id": "s5_8",
+     "name": "Protective Custody",
+     "fig": ""
+    },
+    {
+     "id": "s5_9",
+     "name": "The End of the Road",
+     "fig": ""
+    }
+   ]
+  }
+ ],
+ "neben": [
+  {
+   "id": "n1",
+   "kap": 1,
+   "geber": "Shirley",
+   "name": "Get Shirley's Rum",
+   "verpassbar": true
+  },
+  {
+   "id": "n2",
+   "kap": 1,
+   "geber": "Shirley",
+   "name": "Steal the Scooter",
+   "verpassbar": true
+  },
+  {
+   "id": "n3",
+   "kap": 1,
+   "geber": "Kenton",
+   "name": "Search the Dive Sites (Wracks)",
+   "verpassbar": false
+  },
+  {
+   "id": "n4",
+   "kap": 1,
+   "geber": "Cal",
+   "name": "Catch a Bigger Fish",
+   "verpassbar": false
+  },
+  {
+   "id": "n5",
+   "kap": 1,
+   "geber": "Kirk",
+   "name": "Search for the Skunk Ape",
+   "verpassbar": false
+  },
+  {
+   "id": "n6",
+   "kap": 1,
+   "geber": "Kirk",
+   "name": "Search for Tree Effigies",
+   "verpassbar": false
+  },
+  {
+   "id": "n7",
+   "kap": 1,
+   "geber": "Kirk",
+   "name": "Help Kirk Find Mr. Mangrove",
+   "verpassbar": false
+  },
+  {
+   "id": "n8",
+   "kap": 2,
+   "geber": "Kyle",
+   "name": "Check Out McKittrick Farm",
+   "verpassbar": false
+  },
+  {
+   "id": "n9",
+   "kap": 2,
+   "geber": "Kyle",
+   "name": "Collect Chemicals for Kyle",
+   "verpassbar": false
+  },
+  {
+   "id": "n10",
+   "kap": 2,
+   "geber": "Kyle",
+   "name": "Buddy? (Check on Kyle)",
+   "verpassbar": false
+  },
+  {
+   "id": "n11",
+   "kap": 2,
+   "geber": "Moses",
+   "name": "Steal Vehicles for Moses",
+   "verpassbar": false
+  },
+  {
+   "id": "n12",
+   "kap": 2,
+   "geber": "Moses",
+   "name": "Collect Moses' Gift",
+   "verpassbar": false
+  },
+  {
+   "id": "n13",
+   "kap": 2,
+   "geber": "Bret Vogel",
+   "name": "Veteran Hunted",
+   "verpassbar": false
+  },
+  {
+   "id": "n14",
+   "kap": 2,
+   "geber": "Bret Vogel",
+   "name": "Bret's Hunting Decks",
+   "verpassbar": false
+  },
+  {
+   "id": "n15",
+   "kap": 2,
+   "geber": "Billy",
+   "name": "Thrillbillies",
+   "verpassbar": false
+  },
+  {
+   "id": "n16",
+   "kap": 2,
+   "geber": "Billy",
+   "name": "Twist Wrist, Smash, Grab",
+   "verpassbar": false
+  },
+  {
+   "id": "n17",
+   "kap": 2,
+   "geber": "Billy",
+   "name": "Mall Rats",
+   "verpassbar": false
+  },
+  {
+   "id": "n18",
+   "kap": 2,
+   "geber": "Billy",
+   "name": "The Impaler",
+   "verpassbar": false
+  },
+  {
+   "id": "n19",
+   "kap": 2,
+   "geber": "Billy",
+   "name": "Hometown Heroes",
+   "verpassbar": false
+  },
+  {
+   "id": "n20",
+   "kap": 3,
+   "geber": "Yago",
+   "name": "Join a Street Race",
+   "verpassbar": false
+  },
+  {
+   "id": "n21",
+   "kap": 3,
+   "geber": "Yago",
+   "name": "Bumper to Bumper",
+   "verpassbar": false
+  },
+  {
+   "id": "n22",
+   "kap": 3,
+   "geber": "Yago",
+   "name": "Race Against Yago",
+   "verpassbar": true
+  },
+  {
+   "id": "n23",
+   "kap": 3,
+   "geber": "Yago",
+   "name": "Brother to Brother",
+   "verpassbar": false
+  },
+  {
+   "id": "n24",
+   "kap": 3,
+   "geber": "Andy",
+   "name": "Climbing the Cellerichain (Teil 1–3)",
+   "verpassbar": false
+  },
+  {
+   "id": "n25",
+   "kap": 3,
+   "geber": "Andy",
+   "name": "Pay the Cellerica Fee",
+   "verpassbar": false
+  },
+  {
+   "id": "n26",
+   "kap": 3,
+   "geber": "Andy",
+   "name": "Peach!",
+   "verpassbar": false
+  },
+  {
+   "id": "n27",
+   "kap": 3,
+   "geber": "Andy",
+   "name": "Read the Label",
+   "verpassbar": false
+  },
+  {
+   "id": "n28",
+   "kap": 3,
+   "geber": "Andy",
+   "name": "Puff Puff Pass",
+   "verpassbar": false
+  },
+  {
+   "id": "n29",
+   "kap": 3,
+   "geber": "Yasmani",
+   "name": "Yasmani's ATM Jobs",
+   "verpassbar": false
+  },
+  {
+   "id": "n30",
+   "kap": 3,
+   "geber": "Yasmani",
+   "name": "Yasmani's Payday Loans Jobs",
+   "verpassbar": false
+  },
+  {
+   "id": "n31",
+   "kap": 3,
+   "geber": "Yasmani",
+   "name": "Tail the Security Van",
+   "verpassbar": false
+  },
+  {
+   "id": "n32",
+   "kap": 3,
+   "geber": "Randy",
+   "name": "Randy's Wish List",
+   "verpassbar": false
+  },
+  {
+   "id": "n33",
+   "kap": 3,
+   "geber": "Tyrone",
+   "name": "Take Out Kitty Litter",
+   "verpassbar": false
+  },
+  {
+   "id": "n34",
+   "kap": 3,
+   "geber": "Tyrone",
+   "name": "Spin On This",
+   "verpassbar": false
+  },
+  {
+   "id": "n35",
+   "kap": 3,
+   "geber": "Dunk",
+   "name": "Dunk's Robbery Tips",
+   "verpassbar": false
+  },
+  {
+   "id": "n36",
+   "kap": 4,
+   "geber": "Eddie Acosta",
+   "name": "Attend Eddie Acosta's Party",
+   "verpassbar": false
+  },
+  {
+   "id": "n37",
+   "kap": 4,
+   "geber": "Pilot Pete",
+   "name": "The Last Mile: Passing the Torch",
+   "verpassbar": false
+  },
+  {
+   "id": "n38",
+   "kap": 4,
+   "geber": "Pilot Pete",
+   "name": "The Last Mile: Backseat Pilot",
+   "verpassbar": false
+  },
+  {
+   "id": "n39",
+   "kap": 4,
+   "geber": "Pilot Pete",
+   "name": "Pete's Deliveries: Southpoint Airfield",
+   "verpassbar": false
+  },
+  {
+   "id": "n40",
+   "kap": 4,
+   "geber": "Pilot Pete",
+   "name": "Pete's Deliveries: Avery Allen & Co.",
+   "verpassbar": false
+  },
+  {
+   "id": "n41",
+   "kap": 4,
+   "geber": "Pilot Pete",
+   "name": "Deliver Packages",
+   "verpassbar": false
+  },
+  {
+   "id": "n42",
+   "kap": 4,
+   "geber": "Lucia",
+   "name": "This is a Free Call From…",
+   "verpassbar": true
+  }
+ ],
+ "aktiv": [
+  {
+   "id": "a1",
+   "kat": "Wasser",
+   "name": "Airboat fahren"
+  },
+  {
+   "id": "a2",
+   "kat": "Wasser",
+   "name": "Jetski fahren"
+  },
+  {
+   "id": "a3",
+   "kat": "Wasser",
+   "name": "Kajak fahren"
+  },
+  {
+   "id": "a4",
+   "kat": "Wasser",
+   "name": "Tauchen / Schnorcheln"
+  },
+  {
+   "id": "a5",
+   "kat": "Wasser",
+   "name": "Angeln (Meer & Seen)"
+  },
+  {
+   "id": "a6",
+   "kat": "Sport",
+   "name": "Basketball am Strand"
+  },
+  {
+   "id": "a7",
+   "kat": "Sport",
+   "name": "Fitnessstudio (Gewichte)"
+  },
+  {
+   "id": "a8",
+   "kat": "Sport",
+   "name": "Wrestling im Hinterhof"
+  },
+  {
+   "id": "a9",
+   "kat": "Sport",
+   "name": "Mini-Golf"
+  },
+  {
+   "id": "a10",
+   "kat": "Sport",
+   "name": "Billard"
+  },
+  {
+   "id": "a11",
+   "kat": "Fahren",
+   "name": "Autorennen"
+  },
+  {
+   "id": "a12",
+   "kat": "Fahren",
+   "name": "Dirtbike-Rennen"
+  },
+  {
+   "id": "a13",
+   "kat": "Fahren",
+   "name": "E-Scooter fahren"
+  },
+  {
+   "id": "a14",
+   "kat": "Action",
+   "name": "Basejumping"
+  },
+  {
+   "id": "a15",
+   "kat": "Action",
+   "name": "Schießstand"
+  },
+  {
+   "id": "a16",
+   "kat": "Action",
+   "name": "Überfälle (z. B. Spirituosenladen)"
+  },
+  {
+   "id": "a17",
+   "kat": "Freizeit",
+   "name": "Club / Tanzen"
+  },
+  {
+   "id": "a18",
+   "kat": "Freizeit",
+   "name": "Fernsehen"
+  },
+  {
+   "id": "a19",
+   "kat": "Freizeit",
+   "name": "Zoo besuchen"
+  }
+ ]
+};
