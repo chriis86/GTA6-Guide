@@ -200,10 +200,14 @@
 /* ---------- Einstellungen: hier ggf. Repo anpassen ---------- */
 const REPO_RAW = "https://raw.githubusercontent.com/chriis86/gta6-guide/main/";
 const FEEDS = [
-  {name:"Tipps & Tricks", url:"https://news.google.com/rss/search?q=%22GTA+6%22+(Tipps+OR+Tricks+OR+Guide)+when:7d&hl=de&gl=DE&ceid=DE:de"},
-  {name:"News", url:"https://news.google.com/rss/search?q=%22GTA+6%22+when:3d&hl=de&gl=DE&ceid=DE:de"},
-  {name:"Community", url:"https://www.reddit.com/r/GTA6/top/.rss?t=day"}
+  {name:"Tipps & Tricks", url:"https://news.google.com/rss/search?q=%22GTA+6%22+(Tipps+OR+Tricks+OR+Fundorte+OR+versteckt+OR+geheim+OR+%22Easter+Egg%22+OR+%22so+bekommt%22+OR+%22so+findet%22)+when:14d&hl=de&gl=DE&ceid=DE:de"},
+  {name:"Entdeckungen", url:"https://www.reddit.com/r/GTA6/search.rss?q=tip+OR+tips+OR+found+OR+discovered+OR+secret+OR+%22easter+egg%22+OR+hidden+OR+PSA+OR+TIL&restrict_sr=1&sort=top&t=week"},
+  {name:"Entdeckungen", url:"https://www.reddit.com/r/GTA6/top/.rss?t=day"}
 ];
+// Nur Tipps & Entdeckungen: mind. eins dieser Wörter muss im Titel stehen ...
+const MUST = /tipp|trick|guide|fundort|versteck|geheim|easter.?egg|entdeck|so (bekommt|findet|schafft|verdient|holt)|wo (ihr|man|du)|freischalt|tip|found|discover|secret|hidden|psa|til\b|hack|glitch|best way|how to|location|unlock|money|cheat/i;
+// ... und nichts davon (Nachrichten, Videos, Verkaufszahlen, Leaks usw.)
+const BLOCK = /youtube|youtu\.be|video|trailer|stream|twitch|tiktok|verkauf|umsatz|aktie|rockstar (sagt|bestätigt)|take.?two|review|test:|wertung|rekord|sales|stock|leak|gerücht|rumor|preis|price|release|verschieb|delay|pc.?version|vorbestell|meme|fan.?art|unboxing|ps5 pro/i;
 const AUTO_MIN = 15; // automatisch alle X Minuten aktualisieren
 
 /* ---------- Speicher ---------- */
@@ -331,6 +335,8 @@ function renderNeben(){
     if(query && !inner) return;
     html += chapter("n" + k, "Ab Kapitel " + k, inner, c, list.length);
   });
+  if(!query && !kaps.includes(5)) html += `<div class="chap"><div class="chead"><b>Ab Kapitel 5</b><small>0/0</small></div>
+    <div class="list"><div class="empty">In Kapitel 5 kommen keine neuen Nebenmissionen dazu.<br>Offene aus Kapitel 1–4 kannst du aber weiter erledigen.</div></div></div>`;
   $("#v-neben").innerHTML = found ? html : `<div class="empty">Nichts gefunden</div>`;
 }
 
@@ -379,9 +385,11 @@ function parseFeed(xml, srcName){
       let quelle = get("source") || srcName;
       // Google News: "Titel - Quelle"
       const m = title.match(/^(.*) - ([^-]{2,40})$/);
-      if(m && srcName !== "Community"){ title = m[1]; quelle = m[2]; }
-      if(srcName === "Community") quelle = "r/GTA6";
-      if(title) out.push({t:title, l:link, d:Date.parse(dateStr) || Date.now(), q:quelle, k:srcName});
+      if(m && srcName !== "Entdeckungen"){ title = m[1]; quelle = m[2]; }
+      if(srcName === "Entdeckungen") quelle = "Community r/GTA6";
+      const inhalt = (get("content") + " " + get("description")).toLowerCase();
+      if(!title || !MUST.test(title) || BLOCK.test(title) || /youtube\.com|youtu\.be|v\.redd\.it/.test(inhalt + link)) return;
+      out.push({t:title, l:link, d:Date.parse(dateStr) || Date.now(), q:quelle, k:srcName});
     });
   }catch(e){}
   return out.slice(0, 25);
@@ -422,7 +430,7 @@ function renderTicker(){
   if(neu && view !== "ticker"){ b.style.display = ""; b.textContent = neu > 99 ? "99+" : neu; } else b.style.display = "none";
   if(view !== "ticker") return;
   $("#liveTxt").textContent = ticker.zeit ? "Aktualisiert " + ago(ticker.zeit) : "Live-Ticker";
-  const cats = ["Alle", "Guide-Tipps", ...FEEDS.map(f => f.name)];
+  const cats = ["Alle", "Guide-Tipps", ...new Set(FEEDS.map(f => f.name))];
   $("#tchips").innerHTML = cats.map(c => `<button class="chip ${c === tfilter ? "on" : ""}" data-c="${c}">${c}</button>`).join("");
   let html = "";
   const tipps = ticker.tipps.length ? ticker.tipps : (window.TIPPS_FALLBACK || []);
