@@ -92,6 +92,11 @@ public class MainActivity extends Activity {
         }
 
         @JavascriptInterface
+        public void openMap() {
+            runOnUiThread(() -> startActivity(new Intent(MainActivity.this, KartenActivity.class)));
+        }
+
+        @JavascriptInterface
         public void openUrl(String url) {
             runOnUiThread(() -> openExternal(url));
         }

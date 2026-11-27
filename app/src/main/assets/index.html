@@ -181,6 +181,7 @@
   <button data-v="story" class="on"><div>📖</div>Story</button>
   <button data-v="neben"><div>🧭</div>Neben</button>
   <button data-v="aktiv"><div>🌴</div>Aktivitäten</button>
+  <button data-m="karte"><div>🗺️</div>Karte</button>
   <button data-v="ticker"><div>📡</div>Live<span class="badge" id="tbadge" style="display:none"></span></button>
 </nav>
 
@@ -475,6 +476,7 @@ document.addEventListener("click", e => {
   const chip = e.target.closest(".chip");
   if(chip){ tfilter = chip.dataset.c; renderTicker(); return; }
   const nb = e.target.closest("nav button");
+  if(nb && nb.dataset.m === "karte"){ if(window.Android && Android.openMap) Android.openMap(); else openUrl("https://mapgenie.io/grand-theft-auto-6/maps/leonida"); return; }
   if(nb){ setView(nb.dataset.v); return; }
   if(e.target.id === "sheet") $("#sheet").classList.remove("on");
 });
@@ -482,7 +484,7 @@ document.addEventListener("click", e => {
 function setView(v){
   if(view === "ticker" && v !== "ticker"){ lastSeen = Date.now(); store.set("lastSeen", lastSeen); }
   view = v;
-  document.querySelectorAll("nav button").forEach(b => b.classList.toggle("on", b.dataset.v === v));
+  document.querySelectorAll("nav button").forEach(b => b.classList.toggle("on", !!b.dataset.v && b.dataset.v === v));
   document.querySelectorAll(".view").forEach(s => s.classList.toggle("on", s.id === "v-" + v));
   $("#q").style.display = v === "ticker" ? "none" : "";
   window.scrollTo(0, 0);
